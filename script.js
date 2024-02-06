@@ -76,6 +76,7 @@ boxappear=()=>{
      });
 }
 showcasedissappear=()=>{
+    draw=0;
     if(winnerx.style.display!=="none"){
         winnerx.style.display="none";
     }
