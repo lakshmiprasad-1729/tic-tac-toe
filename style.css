@@ -123,9 +123,13 @@
     }
 
     .subcontent {
-        display: grid;
         gap: 0.8rem;
         width: 16rem;
+        display: grid;
+        gap: 0.5rem;
+    }
+    .container{
+        display: flex;
     }
 
     .btns {
@@ -137,6 +141,9 @@
         background: white;
         margin-left: 0.3rem;
         display: inline;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .description {
