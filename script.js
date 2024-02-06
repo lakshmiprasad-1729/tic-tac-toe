@@ -124,6 +124,7 @@ draw1=()=>{
     {
       drawcase.style.display="inline";
       winnerx.style.display="none";
+      winner0.style.display="none";
       draw=0;
       boxes.forEach((box) => {
         box.style.display="none";
