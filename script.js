@@ -7,20 +7,26 @@ let winnerx=document.querySelector("#winnershowcase1");
 let winner0=document.querySelector("#winnershowcase2");
 let newgame=document.querySelector("#newgame")
 let retry=document.querySelector(".retry");
+let drawcase=document.querySelector("#draw");
+let draw=0;
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
         console.log("clicked");
+        box.style.fontSize="4rem";
         if (turn) {
             box.innerText = "x";
             turn = false;
+            draw++;
         }
         else {
-            box.innerText = "0";
+            box.innerText = "o";
             turn = true;
+            draw++;
         }
         box.disabled=true;
         checkwinner();
-        
+        draw1();
+        console.log(draw);
         
     });
 });
@@ -48,6 +54,7 @@ checkwinner=()=>{
             }
         }
     }
+    console.log(draw);
 }
 newgame.addEventListener("click",()=>{
     showcasedissappear();
@@ -56,6 +63,7 @@ newgame.addEventListener("click",()=>{
     turn=true;
     buttons();
     retry.style.display="none";
+    drawcase.style.display="none";
 });
 textremove=()=>{
     boxes.forEach((box)=>{
@@ -96,13 +104,28 @@ text=()=>{
 }
 retry.addEventListener("click",()=>{
     showcasedissappear();
-boxappear();
-textremove();
- retry.style.display="none";
+    boxappear();
+    textremove();
+    turn=true;
+    buttons();
+    newgame.style.display="inline";
+    retry.style.display="none";
+    drawcase.style.display="none";
 
 });
 buttons=()=>{
     boxes.forEach((box)=>{
     box.disabled=false;
     })
+}
+draw1=()=>{
+    if(draw===9)
+    {
+      drawcase.style.display="inline";
+      winnerx.style.display="none";
+      draw=0;
+      boxes.forEach((box) => {
+        box.style.display="none";
+     });
+    }
 }
